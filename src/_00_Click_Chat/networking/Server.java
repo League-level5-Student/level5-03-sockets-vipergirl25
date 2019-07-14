@@ -61,6 +61,16 @@ public class Server {
 	public int getPort() {
 		return port;
 	}
+	public void sendMessage(String x) {
+		try {
+			if (os !=null) {
+				os.writeObject(x);
+				os.flush();
+			} 
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 	public void sendClick() {
 		try {

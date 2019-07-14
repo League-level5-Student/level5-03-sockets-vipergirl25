@@ -48,7 +48,16 @@ public class Client {
 			}
 		}
 	}
-	
+	public void sendMessage(String a) {
+		try {
+			if(os != null) {
+				os.writeObject(a);
+				os.flush();
+			}
+		}catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 	public void sendClick() {
 		try {
 			if (os != null) {

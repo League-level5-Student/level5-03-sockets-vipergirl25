@@ -7,6 +7,17 @@ public class ClientGreeter {
 
    public static void main(String [] args) {
 	  //1. Create a String for the ip address of the server. 
+	   try {
+		   Socket s = new Socket("192.168.1.255", 8080);
+		   DataOutputStream os = new DataOutputStream(s.getOutputStream());
+		   os.writeUTF("hi");
+		   DataInputStream is = new DataInputStream(s.getInputStream());
+		   is.readUTF();
+		   s.close();
+	   }catch(IOException e) {
+		   e.printStackTrace();
+	   }
+	
 	  // If you don't know how to find a computer's ip address, ask about ifconfig on linux/mac and ipconfig on windows.
       
       //2. Create an integer for the server's port number
